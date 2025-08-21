@@ -11,11 +11,19 @@ app.use(express.json());
 // demo route
 app.get('/', (_, res) => res.send('ERP API up'));
 
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+
 async function boot() {
     await AppDataSource.initialize();
     app.listen(process.env.PORT ?? 3000, () =>
         console.log(`⇢ http://localhost:${process.env.PORT ?? 3000}`)
     );
+
 }
 
 boot().catch(err => {

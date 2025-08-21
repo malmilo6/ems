@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev":   "ts-node-dev --respawn --transpile-only src/app.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
     "build": "tsc -p .",
     "start": "node dist/app.js",
-
     "typeorm": "typeorm-ts-node-commonjs",
     "migration:generate": "npm run typeorm -- migration:generate src/migrations/Init -d src/data-source.ts",
-    "migration:run":      "npm run typeorm -- migration:run -d src/data-source.ts",
-    "migration:revert":   "npm run typeorm -- migration:revert -d src/data-source.ts"
+    "migration:run": "npm run typeorm -- migration:run -d src/data-source.ts",
+    "migration:revert": "npm run typeorm -- migration:revert -d src/data-source.ts"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +20,9 @@
     "express": "^5.1.0",
     "pg": "^8.16.3",
     "reflect-metadata": "^0.2.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-dist": "^5.27.1",
+    "swagger-ui-express": "^5.0.1",
     "typeorm": "^0.3.25"
   },
   "devDependencies": {
