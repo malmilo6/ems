@@ -1,10 +1,12 @@
-import {BaseEntity, Column, Entity, OneToMany} from "typeorm";
+import {BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {TimesheetEntry} from "./TimesheetEntry";
 
 @Entity()
 export class User extends BaseEntity {
+    @PrimaryGeneratedColumn()
+    id: number;
 
-    @Column({type: 'string', nullable: false, unique: true})
+    @Column({type: 'varchar', nullable: false, unique: true})
     username: string;
 
     @OneToMany(() => TimesheetEntry, entry => entry.user, {})

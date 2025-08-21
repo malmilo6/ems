@@ -1,4 +1,4 @@
-import {BaseEntity, Column, Entity, ManyToOne} from "typeorm";
+import {BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {TimesheetEntry,} from "./TimesheetEntry";
 
 
@@ -11,6 +11,9 @@ export enum TimesheetEntryLogType {
 
 @Entity({name: 'TimesheetEntryLog'})
 export class TimesheetEntryLog extends BaseEntity{
+    @PrimaryGeneratedColumn()
+    id: number;
+
     @Column({type: 'enum' , enum: TimesheetEntryLogType})
     type: TimesheetEntryLogType;
     @Column()

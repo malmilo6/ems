@@ -1,8 +1,11 @@
-import {BaseEntity, Column, Entity, ManyToOne, OneToOne} from "typeorm";
+import {BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {TimesheetEntry} from "./TimesheetEntry";
 
 @Entity()
 export class DailyTimeEntry extends BaseEntity {
+    @PrimaryGeneratedColumn()
+    id: number;
+
     @Column({default: new Date()})
     date: Date
 

@@ -34,13 +34,13 @@ export class TimesheetEntry extends BaseEntity {
     })
     status!: TimesheetEntryStatus;
 
-    @Column({ type: 'int' })
+    @Column({ type: 'integer' })
     year!: number;                               // e.g. 2025
 
-    @Column({ type: 'int', width: 2 })
+    @Column({ type: 'integer', width: 2 })
     month!: number;                              // 1-12
 
-    @Column({ type: 'int', width: 2 })
+    @Column({ type: 'integer', width: 2 })
     week!: number;                               // ISO week 1-53
 
     @Column({ default: false })
@@ -58,7 +58,7 @@ export class TimesheetEntry extends BaseEntity {
     })
     dailyTimeEntries!: DailyTimeEntry[];
 
-    @Column({ type: 'string' })
+    @Column({ type: 'varchar' })
     externalReference: string;
 
 }

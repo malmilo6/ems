@@ -1,4 +1,4 @@
-import {BaseEntity, Column, Entity} from "typeorm";
+import {BaseEntity, Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 
 export enum ErrorSource {
     SourceRejection = 'SourceRejection',
@@ -7,12 +7,15 @@ export enum ErrorSource {
 
 @Entity()
 export class TimesheetEntryError extends BaseEntity {
+    @PrimaryGeneratedColumn()
+    id: number;
+
     @Column({ type: 'enum' , enum: ErrorSource})
     source: ErrorSource;
 
-    @Column({ type: 'string' })
+    @Column({ type: 'varchar' })
     errorCode: string;
 
-    @Column({ type: 'string' })
+    @Column({ type: 'varchar' })
     message: string;
 }
